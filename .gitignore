@@ -1,0 +1,28 @@
+# Build files
+build/
+out/
+*.o
+*.a
+*.so
+*.exe
+
+# IDE-specific files
+.vscode/
+.vs/
+.idea/
+*.sln
+*.vcxproj*
+*.user
+CMakeSettings.json
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+CMakeLists.txt
+cmake-build-debug/
+
+# Logs and temp files
+*.log
+*.tmp
