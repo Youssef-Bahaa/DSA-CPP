@@ -3,7 +3,13 @@
 using namespace std;
 
 int main() {
-    cout<<"lol";
+    LinkedList ll;
+    ll.insert(1);
+    ll.insert(15);
+    ll.insert(18);
+
+    ll.delete_val(15);
+    ll.print();
 
     return 0;
 }

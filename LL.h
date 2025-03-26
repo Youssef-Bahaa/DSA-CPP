@@ -16,15 +16,16 @@ struct Node {
 
 class LinkedList {
 private:
-    Node* head{};
-    Node* tail{};
+    Node *head{};
+    Node *tail{};
+    int length{};
 
-Public:
+public:
     void print();
     void insert(int data);
     void delete_val(int val);
-
-
+    Node* get_nth_node(int n);
+    int search(int val);
 
 };
 

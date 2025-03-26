@@ -9,12 +9,13 @@
 void LinkedList::insert(int data) {
     Node* newNode = new Node(data);
     if (!head) {
-        head = newNode;
-        tail = head;
-        return;
+        head = tail= newNode;
     }
-    tail->next = newNode;
-    tail = tail->next;
+    else {
+        tail->next = newNode;
+        tail = newNode;
+    }
+    length++;
 }
 
 void LinkedList::print() {
@@ -29,11 +30,13 @@ void LinkedList::print() {
 void LinkedList::delete_val(int val) {
     Node* prev;
     Node* cur = head;
+    bool found = false;
     if (head->val ==val) {
         head = head->next;
         delete cur;
         return;
     }
+
     while (cur) {
         if (cur->val == val) {
             prev->next = cur->next;
@@ -41,7 +44,31 @@ void LinkedList::delete_val(int val) {
             return;
 
         }
+        prev = cur;
+        cur = cur->next;
     }
 
+    if (tail->val == val) {
+        found = 1;
+        tail = prev;
+    }
+    if (found)
+        length--;
 }
 
+Node* LinkedList::get_nth_node(int n) {
+    int cnt = 1;
+    for (Node* cur = head; cur; cur = cur->next)
+        if (cnt++ == n)return cur;
+
+    return nullptr;
+}
+
+int LinkedList::search(int val) {
+    int cnt = 1;
+    for (Node* cur = head; cur; cur = cur->next) {
+        if (cur->val == val)return cnt;
+        cnt++;
+    }
+    return -1;
+}
