@@ -27,19 +27,50 @@ void LinkedList::print() {
 }
 
 
+void LinkedList::delete_first() {
+    if (head) {
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+        length--;
+        if (!length)
+            head = tail = nullptr;
+    }
+
+}
+
+void LinkedList::delete_last() {
+    if (length == 1)
+        delete_first();
+    else {
+        tail = get_nth_node(length - 1);
+        delete tail->next;
+        tail->next = nullptr;
+        length--;
+    }
+
+}
+
+
+
+
 void LinkedList::delete_val(int val) {
     Node* prev;
     Node* cur = head;
-    bool found = false;
+
     if (head->val ==val) {
-        head = head->next;
-        delete cur;
+        delete_first();
         return;
     }
 
+    if (tail->val == val) {
+        delete_last();
+        return;
+    }
     while (cur) {
         if (cur->val == val) {
             prev->next = cur->next;
+            length--;
             delete cur;
             return;
 
@@ -48,13 +79,34 @@ void LinkedList::delete_val(int val) {
         cur = cur->next;
     }
 
-    if (tail->val == val) {
-        found = 1;
-        tail = prev;
-    }
-    if (found)
-        length--;
 }
+
+
+void LinkedList::delete_idx(int idx) {
+    if (idx < 0 or idx >= length)
+        return;
+
+    if (idx ==0) {
+        delete_first();
+        return;
+    }
+    if (idx == length - 1) {
+        delete_last();
+        return;
+    }
+
+
+    Node* cur = get_nth_node(idx);
+    Node* prev = get_nth_node(idx-1);
+
+    prev->next = cur->next;
+    delete cur;
+    length--;
+
+}
+
+
+
 
 Node* LinkedList::get_nth_node(int n) {
     int cnt = 1;
@@ -72,3 +124,5 @@ int LinkedList::search(int val) {
     }
     return -1;
 }
+
+int LinkedList::size(){return length;}

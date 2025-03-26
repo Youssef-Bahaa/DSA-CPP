@@ -4,12 +4,16 @@ using namespace std;
 
 int main() {
     LinkedList ll;
-    ll.insert(1);
+    ll.insert(5);
+    ll.insert(10);
     ll.insert(15);
-    ll.insert(18);
-
-    ll.delete_val(15);
+    ll.insert(20);
+    ll.insert(25);
+    ll.delete_val(5);
+    cout <<"[ ";
     ll.print();
+    cout <<"]\n";
+    cout <<"Size: "<<ll.size();
 
     return 0;
 }

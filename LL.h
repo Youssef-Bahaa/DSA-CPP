@@ -24,9 +24,12 @@ public:
     void print();
     void insert(int data);
     void delete_val(int val);
+    void delete_first();
+    void delete_last();
+    void delete_idx(int idx);
     Node* get_nth_node(int n);
     int search(int val);
-
+    int size();
 };
 
 
