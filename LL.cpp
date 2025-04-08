@@ -126,3 +126,38 @@ int LinkedList::search(int val) {
 }
 
 int LinkedList::size(){return length;}
+
+
+bool LinkedList::is_empty() {
+    return length == 0;
+}
+
+void LinkedList::clear() {
+    while (head) {
+        Node* temp = head->next;
+        delete head;
+        head = temp;
+    }
+
+}
+
+int LinkedList::get_first() {if (head)return head->val;}
+
+int LinkedList::get_last() {if (head)return tail->val;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

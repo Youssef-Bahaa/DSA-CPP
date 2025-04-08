@@ -13,8 +13,8 @@ int main() {
     cout <<"[ ";
     ll.print();
     cout <<"]\n";
-    cout <<"Size: "<<ll.size();
-
+    cout <<"Size: "<<ll.size()<<endl;
+    cout<<ll.get_first();
     return 0;
 }
 

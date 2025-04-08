@@ -30,6 +30,11 @@ public:
     Node* get_nth_node(int n);
     int search(int val);
     int size();
+    bool is_empty();
+    void clear();
+    int get_first();
+    int get_last();
+
 };
 
 
