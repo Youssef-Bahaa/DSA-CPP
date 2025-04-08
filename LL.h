@@ -5,6 +5,8 @@
 #ifndef LL_H
 #define LL_H
 #include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 struct Node {
@@ -34,7 +36,7 @@ public:
     void clear();
     int get_first();
     int get_last();
-
+    void sort();
 };
 
 

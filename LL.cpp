@@ -6,6 +6,8 @@
 
 #include <iostream>
 
+using namespace std;
+
 void LinkedList::insert(int data) {
     Node* newNode = new Node(data);
     if (!head) {
@@ -146,12 +148,23 @@ int LinkedList::get_first() {if (head)return head->val;}
 int LinkedList::get_last() {if (head)return tail->val;}
 
 
+void LinkedList::sort() {
 
+    vector<int> v;
+    Node* cur = head;
+    while (cur) {
+        v.push_back(cur->val);
+        cur = cur->next;
+    }
 
+    std::sort(v.begin(),v.end());
 
-
-
-
+    cur = head;
+    for (auto i : v) {
+        cur->val = i;
+        cur = cur->next;
+    }
+}
 
 
 
